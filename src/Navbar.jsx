@@ -74,7 +74,7 @@ const Navbar = () => {
         <Typography
           variant="h6"
           component={Link}
-          to="/"
+          to="/home"
           sx={{
             textDecoration: "none",
             color: "inherit",
@@ -101,10 +101,18 @@ const Navbar = () => {
             </SignedIn>
 
             <SignedOut>
-              <Button color="inherit" component={Link} to="/login">
+              <Button
+                color="inherit"
+                component={Link}
+                to="https://allowing-locust-93.accounts.dev/sign-in?redirect_url=http%3A%2F%2Flocalhost%3A3000%2Fhome"
+              >
                 Login
               </Button>
-              <Button color="inherit" component={Link} to="/register">
+              <Button
+                color="inherit"
+                component={Link}
+                to="https://allowing-locust-93.accounts.dev/sign-up"
+              >
                 Register
               </Button>
             </SignedOut>

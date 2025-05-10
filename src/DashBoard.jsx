@@ -1,32 +1,33 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import {
   Grid,
   Card,
+  CardActionArea,
   CardMedia,
   CardContent,
   Typography,
-  CardActionArea,
 } from "@mui/material";
 
-const videos = [
-  {
-    id: "0fB5erd0Gro",
-    title: "Toyota Seecrets",
-    description: "I EXPOSED Toyota Secrets!",
-  },
-  {
-    id: "ctEHDSgP2FI",
-    title: "GR DragRace",
-    description: "NEW Toyota GR Yaris: DRAG RACE & review!",
-  },
-  {
-    id: "gSTzgGDUHXk",
-    title: "GR Beating Ferrari",
-    description: "Ferrari 812 v Tuned GR Yaris: DRAG RACE!",
-  },
-];
-
 const Dashboard = () => {
+  const [videos, setVideos] = useState([]);
+
+  useEffect(() => {
+    const getData = async () => {
+      try {
+        const res = await fetch("http://localhost:3001/videos");
+        if (!res.ok) {
+          throw new Error("Network response was not ok");
+        }
+        const data = await res.json();
+        setVideos(data);
+      } catch (error) {
+        console.error("Error fetching videos:", error);
+      }
+    };
+
+    getData();
+  }, []);
+
   return (
     <Grid container spacing={4} justifyContent="center" sx={{ mt: 2 }}>
       {videos.map((video) => (

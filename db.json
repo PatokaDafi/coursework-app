@@ -3,5 +3,23 @@
     { "id": 1, "name": "Learn React" },
     { "id": 2, "name": "Build Final Project" },
     { "id": 3, "name": "Deploy to Vercel" }
+  ],
+  "videos": [
+    {
+      "id": "0fB5erd0Gro",
+      "title": "Toyota Seecrets",
+      "description": "I EXPOSED Toyota Secrets!"
+    },
+    {
+      "id": "ctEHDSgP2FI",
+      "title": "GR DragRace",
+      "description": "NEW Toyota GR Yaris: DRAG RACE & review!"
+    },
+
+    {
+      "id": "gSTzgGDUHXk",
+      "title": "GR Beating Ferrari",
+      "description": "Ferrari 812 v Tuned GR Yaris: DRAG RACE!"
+    }
   ]
 }

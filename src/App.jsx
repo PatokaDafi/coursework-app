@@ -6,6 +6,7 @@ import Dashboard from "./DashBoard.jsx";
 import Home from "./Home.jsx";
 import Navbar from "./Navbar.jsx";
 import Landing from "./Landing.jsx";
+import Login from "./Login.jsx";
 
 const App = () => {
   return (
@@ -58,6 +59,7 @@ const App = () => {
         />
 
         <Route path="/" element={<Landing />} />
+        <Route path="*" element={<Login />} />
       </Routes>
     </>
   );
