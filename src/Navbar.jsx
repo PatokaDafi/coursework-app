@@ -7,7 +7,7 @@ import {
   Button,
   Switch,
 } from "@mui/material";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { SignedIn, SignedOut, UserButton } from "@clerk/clerk-react";
 import { useThemeMode } from "./ThemeContext.jsx";
 import { styled } from "@mui/material/styles";
@@ -65,6 +65,8 @@ const ThemeSwitch = styled(Switch)(({ theme }) => ({
 
 const Navbar = () => {
   const { mode, toggleMode } = useThemeMode();
+  const location = useLocation();
+  const isLandingPage = location.pathname === "/";
 
   return (
     <AppBar position="static">
@@ -89,23 +91,25 @@ const Navbar = () => {
           inputProps={{ "aria-label": "theme toggle" }}
         />
 
-        <Box sx={{ display: "flex", gap: 2, ml: 2 }}>
-          <SignedIn>
-            <Button color="inherit" component={Link} to="/dashboard">
-              Dashboard
-            </Button>
-            <UserButton afterSignOutUrl="/login" />
-          </SignedIn>
+        {!isLandingPage && (
+          <Box sx={{ display: "flex", gap: 2, ml: 2 }}>
+            <SignedIn>
+              <Button color="inherit" component={Link} to="/dashboard">
+                Dashboard
+              </Button>
+              <UserButton afterSignOutUrl="/login" />
+            </SignedIn>
 
-          <SignedOut>
-            <Button color="inherit" component={Link} to="/login">
-              Login
-            </Button>
-            <Button color="inherit" component={Link} to="/register">
-              Register
-            </Button>
-          </SignedOut>
-        </Box>
+            <SignedOut>
+              <Button color="inherit" component={Link} to="/login">
+                Login
+              </Button>
+              <Button color="inherit" component={Link} to="/register">
+                Register
+              </Button>
+            </SignedOut>
+          </Box>
+        )}
       </Toolbar>
     </AppBar>
   );

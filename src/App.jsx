@@ -5,6 +5,7 @@ import ProtectPage from "./ProtectPage.jsx";
 import Dashboard from "./DashBoard.jsx";
 import Home from "./Home.jsx";
 import Navbar from "./Navbar.jsx";
+import Landing from "./Landing.jsx";
 
 const App = () => {
   return (
@@ -14,12 +15,28 @@ const App = () => {
       <Routes>
         <Route
           path="/login"
-          element={<SignIn routing="path" path="/login" />}
+          element={
+            <SignIn
+              routing="path"
+              path="https://allowing-locust-93.accounts.dev/sign-in?redirect_url=http%3A%2F%2Flocalhost%3A3000%2Fhome"
+              redirectUrl="/home"
+            />
+          }
         />
 
         <Route
           path="/register"
-          element={<SignUp routing="path" path="/register" />}
+          element={
+            <SignUp
+              routing="path"
+              path="https://allowing-locust-93.accounts.dev/sign-up"
+              redirectUrl="/home"
+            />
+          }
+        />
+        <Route
+          path="/login/factor-one"
+          element={<Navigate to="/home" replace />}
         />
 
         <Route
@@ -40,7 +57,7 @@ const App = () => {
           }
         />
 
-        <Route path="/" element={<Navigate to="/login" replace />} />
+        <Route path="/" element={<Landing />} />
       </Routes>
     </>
   );
