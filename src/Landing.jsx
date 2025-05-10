@@ -1,7 +1,7 @@
 import React from "react";
 import { Box, Button, Typography } from "@mui/material";
 import { Link } from "react-router-dom";
-import toyotaLogo from "./png-transparent-toyota-gazoo-racing-hd-logo.png";
+import toyotaLogo from "./grlogo.png";
 
 const Landing = () => {
   return (
